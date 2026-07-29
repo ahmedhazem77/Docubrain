@@ -1,5 +1,5 @@
 # System overview:
-DocuBrain is a web-based document management application that enables authenticated users to organize and manage documents using workspaces. Users can register, log in, create multiple workspaces, upload documents, and monitor the processing status of their uploaded files.
+DocuBrain is a web document management application that enables authenticated users to organize and manage documents using workspaces. Users can register, log in, create multiple workspaces, upload documents, and monitor the processing status of their uploaded files.
 
 # High-Level Architecture:
 

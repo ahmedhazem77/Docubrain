@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WorkspaceController;
+use App\Http\Controllers\DocumentController;
 
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +28,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/workspaces/{id}', [WorkspaceController::class, 'show']);
     Route::put('/workspaces/{id}', [WorkspaceController::class, 'update']);
     Route::delete('/workspaces/{id}', [WorkspaceController::class, 'destroy']);
+    Route::get('/workspaces/{workspaceId}/documents', [DocumentController::class, 'index']);
+    Route::post('/workspaces/{workspaceId}/documents', [DocumentController::class, 'store']);
+    Route::get('/documents/{documentId}', [DocumentController::class, 'show']);
+    Route::delete('/documents/{documentId}', [DocumentController::class, 'destroy']);
+    
 
 });
-
 

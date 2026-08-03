@@ -1,15 +1,12 @@
 <template>
-    <div>
-        <h1>DocuBrain</h1>
-        <p>Vue 3 is working!</p>
+    <div class="app-shell">
+        <AppNav />
+        <main>
+            <RouterView />
+        </main>
     </div>
 </template>
 
 <script setup>
+import AppNav from './components/AppNav.vue';
 </script>
-
-<style scoped>
-h1 {
-    color: #2563eb;
-}
-</style>

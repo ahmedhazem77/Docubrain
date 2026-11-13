@@ -1,19 +1,93 @@
-/.phpunit.cache
-/node_modules
-/public/build
+
+# ==========================================
+# DocuBrain - Git Ignore
+# Laravel + Vue.js + FastAPI + Docker
+# ==========================================
+
+# Environment Variables & Secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+auth.json
+*.pem
+*.key
+!/storage/
+Homestead.json
+Homestead.yaml
+
+# Laravel / PHP
+/vendor/
+/.phpunit.cache/
+/.phpunit.result.cache
+/public/build/
 /public/hot
 /public/storage
 /storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
-npm-debug.log
-yarn-error.log
-/.fleet
-/.idea
-/.vscode
+/storage/logs/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/bootstrap/cache/*.php
+
+# Local PHP installation
+/resources/js/stores/php/
+
+# Node.js / Vue / Vite
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+.pnpm-debug.log*
+
+# Python / FastAPI
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.coverage
+htmlcov/
+
+# AI Model Weights
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# Docker Local Data
+postgres_data/
+redis_data/
+
+# Local Uploads & Temporary Files
+uploads/
+*.tmp
+*.temp
+
+# Logs
+*.log
+logs/
+
+# IDE / Editors
+/.fleet/
+/.idea/
+/.vscode/
+*.swp
+*.swo
+
+# Operating System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Backup Files
+*.bak
+*.backup

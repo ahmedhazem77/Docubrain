@@ -47,7 +47,7 @@ const loading = ref(false);
 const error = ref('');
 
 async function onSubmit() {
-    loading.value = true;
+    loading.value = true;  
     error.value = '';
 
     try {

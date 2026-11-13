@@ -3,7 +3,7 @@
         <div class="page-header">
             <div>
                 <h1>Workspaces</h1>
-                <p class="muted">View, create, and manage your workspaces.</p>
+                <p class="muted">Owned and shared workspaces.</p>
             </div>
             <button type="button" class="btn btn-primary" @click="openCreate">New workspace</button>
         </div>
@@ -12,13 +12,18 @@
         <p v-if="loading" class="muted">Loading workspaces…</p>
 
         <div v-else-if="workspaces.length === 0" class="empty">
-            <p>No workspaces yet. Create one to upload PDFs.</p>
+            <p>No workspaces yet. Create one or ask someone to share with you.</p>
         </div>
 
         <ul v-else class="workspace-list">
-            <li v-for="workspace in workspaces" :key="workspace.id" class="workspace-row">
+            <li v-for="workspace in workspaces" :key="`${workspace.id}-${workspace.role}`" class="workspace-row">
                 <div class="workspace-main">
-                    <strong>{{ workspace.name }}</strong>
+                    <div class="title-row">
+                        <strong>{{ workspace.name }}</strong>
+                        <span class="role-badge" :class="`role-${workspace.role || 'owner'}`">
+                            {{ formatRole(workspace.role) }}
+                        </span>
+                    </div>
                     <span class="muted">{{ workspace.description || 'No description' }}</span>
                     <span class="muted meta-line">ID {{ workspace.id }} · Updated {{ formatDate(workspace.updated_at) }}</span>
                 </div>
@@ -29,8 +34,22 @@
                     >
                         View
                     </RouterLink>
-                    <button type="button" class="btn btn-ghost" @click="openEdit(workspace)">Edit</button>
-                    <button type="button" class="btn btn-danger" @click="remove(workspace)">Delete</button>
+                    <button
+                        v-if="workspace.is_owner"
+                        type="button"
+                        class="btn btn-ghost"
+                        @click="openEdit(workspace)"
+                    >
+                        Edit
+                    </button>
+                    <button
+                        v-if="workspace.is_owner"
+                        type="button"
+                        class="btn btn-danger"
+                        @click="remove(workspace)"
+                    >
+                        Delete
+                    </button>
                 </div>
             </li>
         </ul>
@@ -80,6 +99,11 @@ function formatDate(value) {
     return new Date(value).toLocaleString();
 }
 
+function formatRole(role) {
+    const value = role || 'owner';
+    return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
 async function fetchWorkspaces() {
     loading.value = true;
     error.value = '';
@@ -124,13 +148,21 @@ async function save() {
     try {
         if (editingId.value) {
             const { data } = await api.put(`/workspaces/${editingId.value}`, payload);
-            const index = workspaces.value.findIndex((w) => w.id === editingId.value);
+            const index = workspaces.value.findIndex((w) => w.id === editingId.value && w.is_owner);
             if (index !== -1) {
-                workspaces.value[index] = data.workspace;
+                workspaces.value[index] = {
+                    ...data.workspace,
+                    role: 'owner',
+                    is_owner: true,
+                };
             }
         } else {
             const { data } = await api.post('/workspaces', payload);
-            workspaces.value.unshift(data.workspace);
+            workspaces.value.unshift({
+                ...data.workspace,
+                role: 'owner',
+                is_owner: true,
+            });
         }
         closeDialog();
     } catch (err) {

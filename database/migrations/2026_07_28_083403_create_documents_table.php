@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('workspace_id')->constrained()->cascadeOnDelete();
             $table->string('file_name');
             $table->string('file_path');
-            $table->enum('status', ['pending', 'processed', 'failed'])->default('pending');
+            $table->enum('status', ['pending', 'processed', 'failed','flagged_security_risk'])->default('pending');
             $table->jsonb('metadata');
             $table->timestamps();
         });

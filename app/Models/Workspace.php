@@ -20,4 +20,17 @@ class Workspace extends Model
     {
         return $this->hasMany(Document::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'workspace_user')
+            ->withPivot('role')
+            ->withTimestamps();
+    }
+
+    public function conversations()
+{
+    return $this->hasMany(Conversation::class);
+}
+
 }

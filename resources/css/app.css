@@ -109,6 +109,42 @@ main {
     margin: 0 auto;
 }
 
+.page-wide {
+    width: min(1100px, 100%);
+}
+
+.preview-toolbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.preview-toolbar h2 {
+    margin-bottom: 0.35rem;
+}
+
+.preview-toolbar code {
+    font-size: 0.85em;
+}
+
+.pdf-frame-wrap {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #edf1ee;
+    min-height: 70vh;
+}
+
+.pdf-frame {
+    display: block;
+    width: 100%;
+    height: 70vh;
+    border: 0;
+    background: #fff;
+}
+
 .auth-page {
     min-height: 100vh;
     display: grid;
@@ -312,6 +348,298 @@ textarea:focus {
     margin: 0.5rem 0 0;
 }
 
+.success {
+    color: var(--processed);
+    margin: 0.75rem 0 0;
+    font-weight: 500;
+}
+
+.share-form {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr auto;
+    gap: 0.75rem;
+    align-items: end;
+}
+
+.share-form label {
+    margin: 0;
+}
+
+.share-form select {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fcfdfc;
+    color: var(--ink);
+}
+
+.shared-users {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+}
+
+.shared-users .section-heading h2 {
+    font-size: 1.1rem;
+}
+
+.shared-users-empty {
+    padding: 1.1rem;
+}
+
+.shared-user-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.shared-user-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #f7faf8;
+}
+
+.shared-user-main {
+    display: grid;
+    gap: 0.15rem;
+    min-width: 0;
+    flex: 1;
+}
+
+.conversation-panel {
+    margin-top: 1.5rem;
+}
+
+.conversation-empty {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: center;
+}
+
+.conversation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.conversation-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.35rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #f7faf8;
+}
+
+.conversation-row.active {
+    border-color: rgba(15, 107, 92, 0.45);
+    background: #eef6f3;
+}
+
+.conversation-select {
+    display: grid;
+    gap: 0.15rem;
+    min-width: 0;
+    flex: 1;
+    padding: 0.5rem 0.65rem;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    color: inherit;
+}
+
+.conversation-select strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.role-owner {
+    color: #1f4b7a;
+    background: #e4eef8;
+}
+
+.role-editor {
+    color: var(--processed);
+    background: var(--processed-bg);
+}
+
+.role-viewer {
+    color: var(--muted);
+    background: #e8ece9;
+}
+
+.viewer-note {
+    margin: 0 0 1.25rem;
+}
+
+.chat-panel {
+    margin-top: 1.5rem;
+}
+
+.chat-transcript {
+    display: grid;
+    gap: 0.85rem;
+    max-height: 420px;
+    overflow: auto;
+    padding: 0.25rem 0.15rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.chat-empty {
+    margin: 0.5rem 0;
+}
+
+.chat-message {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.chat-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.chat-bubble {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #f7faf8;
+}
+
+.chat-user .chat-bubble {
+    background: #eef6f3;
+    border-color: rgba(15, 107, 92, 0.22);
+}
+
+.chat-text {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.chat-text-markdown {
+    white-space: normal;
+}
+
+.chat-text-markdown :where(p, ul, ol, pre, blockquote, table, h1, h2, h3, h4) {
+    margin: 0 0 0.75rem;
+}
+
+.chat-text-markdown :where(p:last-child, ul:last-child, ol:last-child, pre:last-child, blockquote:last-child, table:last-child, h1:last-child, h2:last-child, h3:last-child, h4:last-child) {
+    margin-bottom: 0;
+}
+
+.chat-text-markdown :where(ul, ol) {
+    padding-left: 1.25rem;
+}
+
+.chat-text-markdown :where(li + li) {
+    margin-top: 0.25rem;
+}
+
+.chat-text-markdown :where(pre) {
+    padding: 0.75rem;
+    overflow-x: auto;
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.06);
+}
+
+.chat-text-markdown :where(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.92em;
+}
+
+.chat-text-markdown :where(pre code) {
+    background: transparent;
+    padding: 0;
+}
+
+.chat-text-markdown :where(table) {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.chat-text-markdown :where(th, td) {
+    border: 1px solid var(--line);
+    padding: 0.45rem 0.6rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.chat-text-markdown :where(th) {
+    background: rgba(15, 23, 42, 0.04);
+}
+
+.chat-status {
+    margin: 0.55rem 0 0;
+    font-size: 0.9rem;
+}
+
+.chat-sources {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.92rem;
+}
+
+.chat-sources ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.1rem;
+}
+
+.chat-sources li {
+    margin: 0.15rem 0;
+}
+
+.chat-retry {
+    margin-top: 0.75rem;
+}
+
+.chat-form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.chat-input-label {
+    margin: 0;
+}
+
+.chat-form .btn {
+    justify-self: start;
+}
+
 .empty {
     padding: 2rem;
     text-align: center;
@@ -324,6 +652,38 @@ textarea:focus {
     padding: 0;
     display: grid;
     gap: 0.75rem;
+}
+
+.document-item {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.summary-panel {
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #f7faf8;
+}
+
+.summary-panel h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--display);
+    font-weight: 600;
+}
+
+.summary-text {
+    margin: 0 0 0.85rem;
+    white-space: pre-wrap;
+}
+
+.summary-points ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.1rem;
+}
+
+.summary-points li {
+    margin: 0.2rem 0;
 }
 
 .workspace-row,
@@ -368,6 +728,51 @@ textarea:focus {
 .upload-panel {
     padding: 1.25rem;
     margin-bottom: 1.5rem;
+}
+
+.drop-zone {
+    position: relative;
+    display: grid;
+    place-items: center;
+    gap: 0.35rem;
+    min-height: 160px;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border: 2px dashed var(--line);
+    border-radius: 10px;
+    background: #f7faf8;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.drop-zone:hover,
+.drop-zone.has-file {
+    border-color: rgba(15, 107, 92, 0.45);
+    background: #f1f8f5;
+}
+
+.drop-zone.dragging {
+    border-color: var(--accent);
+    background: #e7f5f1;
+    box-shadow: inset 0 0 0 1px rgba(15, 107, 92, 0.18);
+}
+
+.drop-title {
+    margin: 0;
+    font-weight: 600;
+}
+
+.file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .upload-row {
@@ -427,12 +832,16 @@ textarea:focus {
 @media (max-width: 720px) {
     .page-header,
     .workspace-row,
-    .document-row {
+    .document-row,
+    .preview-toolbar,
+    .shared-user-row,
+    .conversation-row {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .detail-grid {
+    .detail-grid,
+    .share-form {
         grid-template-columns: 1fr;
     }
 
@@ -442,7 +851,16 @@ textarea:focus {
     }
 
     .row-actions .btn,
-    .upload-row .btn {
+    .upload-row .btn,
+    .share-form .btn,
+    .shared-user-row .btn,
+    .conversation-row .btn {
         flex: 1;
+    }
+
+    .pdf-frame-wrap,
+    .pdf-frame {
+        min-height: 55vh;
+        height: 55vh;
     }
 }

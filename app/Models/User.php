@@ -27,6 +27,34 @@ class User extends Authenticatable
         return $this->hasMany(Workspace::class);
     }
 
+    public function sharedWorkspaces()
+    {
+        return $this->belongsToMany(Workspace::class, 'workspace_user')
+            ->withPivot('role')
+            ->withTimestamps();
+    }
+
+    public function findAccessibleWorkspace($id): ?Workspace
+    {
+        $owned = $this->workspaces()->find($id);
+
+        if ($owned) {
+            $owned->setAttribute('role', 'owner');
+            $owned->setAttribute('is_owner', true);
+            return $owned;
+        }
+
+        $shared = $this->sharedWorkspaces()->find($id);
+
+        if ($shared) {
+            $shared->setAttribute('role', $shared->pivot->role);
+            $shared->setAttribute('is_owner', false);
+            return $shared;
+        }
+
+        return null;
+    }
+
 
 
     /**
@@ -51,4 +79,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function conversations()
+{
+    return $this->hasMany(Conversation::class);
+}
 }

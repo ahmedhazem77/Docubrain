@@ -1,0 +1,59 @@
+{
+  "source_document": "finalReport(final).pdf",
+  "description": "Fixed DocuBrain evaluation dataset derived from processed document_chunks for finalReport(final).pdf.",
+  "document_id": 2,
+  "workspace_id": 1,
+  "top_k": 4,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which imaging modalities does the abstract say deep learning enables automated analysis of?",
+      "reference_answer": "X-ray, computed tomography (CT), magnetic resonance imaging (MRI), ultrasound, and dermoscopy."
+    },
+    {
+      "id": 2,
+      "question": "In the TransUNet decoder, what role do skip connections play?",
+      "reference_answer": "They combine high-resolution features from the CNN encoder with the corresponding decoder features and preserve fine anatomical details that might otherwise be lost during feature extraction."
+    },
+    {
+      "id": 3,
+      "question": "How many publications does the literature review examine, and how are they divided?",
+      "reference_answer": "Fifteen selected publications, including five review papers and ten original research articles."
+    },
+    {
+      "id": 4,
+      "question": "What is the selected primary research article emphasized throughout the report?",
+      "reference_answer": "TransUNet: Rethinking the U-Net Architecture Design for Medical Image Segmentation Through the Lens of Transformers"
+    },
+    {
+      "id": 5,
+      "question": "According to the experimental results reported for TransUNet, which established CNN-based segmentation methods did the hybrid architecture outperform?",
+      "reference_answer": "U-Net and Attention U-Net."
+    },
+    {
+      "id": 6,
+      "question": "According to Figure 1, what is the progression of deep learning architectures listed before hybrid CNN–Transformer models?",
+      "reference_answer": "Traditional Machine Learning, CNN-based Models, Transfer Learning, and Vision Transformers, followed by Hybrid CNN–Transformer Models (MultiResUNet → TransUNet → HiFuse)."
+    },
+    {
+      "id": 7,
+      "question": "What major challenge related to annotated medical imaging datasets is identified as limiting widespread clinical adoption?",
+      "reference_answer": "The scarcity of large, high-quality annotated medical imaging datasets."
+    },
+    {
+      "id": 8,
+      "question": "What backbone network does the TransUNet CNN encoder use?",
+      "reference_answer": "ResNet-50."
+    },
+    {
+      "id": 9,
+      "question": "Which optimizer was used to optimize TransUNet's network parameters during training?",
+      "reference_answer": "The Adam optimizer."
+    },
+    {
+      "id": 10,
+      "question": "Which two metrics were used to assess TransUNet segmentation performance?",
+      "reference_answer": "The Dice Similarity Coefficient (DSC) and the 95% Hausdorff Distance (HD95)."
+    }
+  ]
+}
